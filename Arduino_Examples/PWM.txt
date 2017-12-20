@@ -1,0 +1,24 @@
+PWM or Pulse width modulation
+
+PWM is a special set of pins on Arduino boards denoted by ~ next to the digital I/O pin cabable of PWM
+
+copied from the arduino PWM page:
+
+Pulse Width Modulation, or PWM, is a technique for getting analog results with digital means.
+Digital control is used to create a square wave, a signal switched between on and off.
+This on-off pattern can simulate voltages in between full on (5 Volts) and off (0 Volts)
+by changing the portion of the time the signal spends on versus the time that the signal spends off.
+The duration of "on time" is called the pulse width.
+To get varying analog values, you change, or modulate, that pulse width.
+If you repeat this on-off pattern fast enough with an LED for example, the result is as if the signal
+is a steady voltage between 0 and 5v controlling the brightness of the LED.
+
+This example can be extended to many devices such as controlling motor speed.
+
+**IMPORTNANT**
+CARE MUST BE TAKEN WHEN DESIGNING A CIRCUIT IMPLEMENTING PWM
+ENSURE YOU ARE USING PWM PINS FROM YOUR ARDUINO
+ALSO ENSURE ALL OF YOUR ELECRICAL COMPONENTS ARE DESIGNED FOR PWM
+NOT ALL TRANSISTORS LIKE PWM AND SOME WILL FAIL POTENTIALLY DESTROYING OTHER ELECTRONIC COMPONENTS
+ADDITIONALLY IF USING A TRANSISTOR AND PWM TO CONTROLL DC MOTOR SPEED,
+	MAKE SURE A FLY BACK DIODE IS USED TO PROTECT THE TRANSISTOR

@@ -1,0 +1,10 @@
+Interrupts:
+
+Deffinition: Interrupts are flags set in the processor, When one of these flags are met the processor stops all other work and runs the interrupt function. When the function is over, the processor resumes what it was doing.
+
+Advantages: Operates very fast
+	prioritizes important events/processes
+
+Disadvantages: Hard to set up
+	Timer interrupts interefere with some devices such as servos
+	May slow down important processes

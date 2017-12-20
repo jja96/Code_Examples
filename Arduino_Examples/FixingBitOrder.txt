@@ -1,0 +1,45 @@
+This is how to fix the bit order assuming you reiceved incoming data in MSB
+	Arduino uses LSB
+	Assuming 4 bytes have been recieved
+
+string A has the data
+
+to convert to int or long:
+int B = 0;
+B = B^A[3];
+B<<8;
+B = B^A[2];
+B<<8;
+B = B^A[1];
+B<<8;
+B = B^A[0];
+
+Strings and arrays
+byte temp = A[0];
+A[0] = A[3];
+A[3] = temp;
+temp = A[1];
+A[1] = A[2];
+A[2] = temp;
+
+for floats and doubles (arduino treats them as the exact same, double doesn't get extra memory)
+before setup() in the code create a union:
+a = # of floats you record in one go
+union u_types{
+	byte b[4];
+	float fval;
+} data[a];
+
+record incoming data bytes to data[index1].b[index2]
+index2 is the incoming bytes, start and index2 = 0, count up to 4
+index1 is the individual float value
+
+re-arange each data[index2].b[]
+byte temp = data[index1].b[0];
+data[index1].b[0] = data[index1].b[3];
+data[index1].b[3] = temp;
+temp = data[index1].b[1];
+data[index1].b[1] = data[index1].b[2];
+data[index1].b[2] = temp;
+
+float C = data[index1].fval;
